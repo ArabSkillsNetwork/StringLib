@@ -28,13 +28,11 @@ class StringLib {
 
         $positions = array_column($matches[0], 1);
         $chunks = array_chunk($positions, 2);
-
-        $out = [];
-
+        
         foreach ($chunks as $_ => $data){
             if(count($data) < 2) continue;
             [$pos1, $pos2] = $data;
-            $out[] = str_replace($type, '', substr($input_text, $pos1, ($pos2 - $pos1) + 1));
+            $output[] = str_replace($type, '', substr($input_text, $pos1, ($pos2 - $pos1) + 1));
         }
         
         return StringResult::create($input_text, $output);
