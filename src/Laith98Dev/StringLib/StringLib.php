@@ -7,7 +7,7 @@ use RuntimeException;
 class StringLib {
 
     /**
-     * Get double quotations args from the text
+     * Get all quotation marks from the text
      * 
      * Example:
      * <Hello "Mr Laith98Dev" or "Hi Sir Laith98Dev">
