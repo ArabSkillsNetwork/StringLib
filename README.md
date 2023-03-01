@@ -2,7 +2,7 @@
 - Its a library made to facilitate some text tasks
 
 # Examples
-- QuotationMarks
+- ### QuotationMarks
 ```php
 $text = 'The best developer is "Laith98Dev"';
 
@@ -32,7 +32,8 @@ array(1) {
   string(10) "Laith98Dev"
 }
 ```
-- String Shift
+
+- ### String Shift
 ```php
 $text = "My name is Laith98Dev";
 
