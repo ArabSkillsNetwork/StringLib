@@ -4,6 +4,9 @@ namespace Laith98Dev\StringLib;
 
 class StringResult {
 
+    /**
+     * @return self
+     */
     public static function create(string $text, mixed $output): self
     {
         return new self($text, $output);
@@ -16,16 +19,43 @@ class StringResult {
         // NOOP
     }
 
+    /**
+     * @return string
+     */
     public function getText(): string{
         return $this->text;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getOutput(): mixed{
+        return $this->output;
+    }
+
+    /**
+     * @return array
+     */
     public function asArray(): array{
+        $output = $this->getOutput();
 
-        if(is_array($this->output)){
-            return $this->output;
-        }
+        return match (true){
+            is_array($output) => $output,
+            is_string($output) => [$output],
+            default => []
+        };
+    }
 
-        return [];
+    /**
+     * @return string
+     */
+    public function asString(): string{
+        $output = $this->getOutput();
+
+        return match (true){
+            is_string($output) => $output,
+            is_array($output) => implode("", $output),
+            default => ""
+        };
     }
 }

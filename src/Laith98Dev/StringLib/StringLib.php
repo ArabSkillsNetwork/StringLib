@@ -4,7 +4,7 @@ namespace Laith98Dev\StringLib;
 
 use RuntimeException;
 
-class StringLib {
+final class StringLib {
 
     /**
      * Get all quotation marks from the text
@@ -36,5 +36,31 @@ class StringLib {
         }
         
         return StringResult::create($input_text, $output);
+    }
+
+    /**
+     * String shift
+     * 
+     * Example:
+     * $text = "hi Laith98Dev!";
+     * $shifted = str_shift($text);
+     * the output of $text will be "i Laith98Dev"
+     * and the output of $shifted is "h"
+     * 
+     * # Same as array_shift()
+     */
+    public static function str_shift(string &$text): StringResult
+    {
+        $length = strlen($text);
+
+        $shifted = "";
+
+        if($length >= 2){
+            $shifted = $text[0]; 
+            $text = substr($text, -abs($length - 1));
+        }
+
+        return StringResult::create($text, $shifted);
+
     }
 }
